@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0av!gca-v6_^^6q&4o6arcg*q(mvktvu+x3l57rtc8gm%hpfu1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["massimo-stockfinder.herokuapp.com/"]
 
 
 # Application definition
