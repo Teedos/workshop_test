@@ -1,0 +1,7 @@
+<form class="d-flex" method="get" action="{% url 'search-result'%}">
+    {% csrf_token %}
+
+    <label for="results">Enter a string: </label>
+    <input id="results" type="text" name="search">
+    <input type="submit" value="submit">
+</form>

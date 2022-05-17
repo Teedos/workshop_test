@@ -1,0 +1,27 @@
+1652799438153	geckodriver	INFO	Listening on 127.0.0.1:53918
+1652799438664	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "-headless" "--remote-debugging-port" "53919" "-foreground" "-no-remote" "-profile" "/var/folders/dw/_fr9bn4s55b_z7cjb3sd9hw00000gn/T/rust_mozprofileQvXCcU"
+*** You are running in headless mode.
+2022-05-17 14:57:18.922 plugin-container[4506:170355] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-05-17 14:57:18.922 plugin-container[4506:170355] nil host used in call to allowsAnyHTTPSCertificateForHost:
+1652799438925	Marionette	INFO	Marionette enabled
+2022-05-17 14:57:18.933 plugin-container[4506:170355] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-05-17 14:57:18.933 plugin-container[4506:170355] nil host used in call to allowsAnyHTTPSCertificateForHost:
+2022-05-17 14:57:18.934 plugin-container[4506:170357] nil host used in call to allowsSpecificHTTPSCertificateForHost
+2022-05-17 14:57:18.934 plugin-container[4506:170357] nil host used in call to allowsAnyHTTPSCertificateForHost:
+console.error: Region.jsm: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.jsm: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.jsm", 419))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/dw/_fr9bn4s55b_z7cjb3sd9hw00000gn/T/rust_mozprofileQvXCcU/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:53919/devtools/browser/d58b69bc-6b0c-4530-b530-74ee504d8299
+1652799439452	Marionette	INFO	Listening on port 53926
+1652799439499	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.macrotrends.net/assets/php/jqfiles/jqwidgets/jqxlistbox.js, line 7: unreachable code after return statement
+JavaScript warning: https://www.macrotrends.net/assets/php/jqfiles/jqwidgets/jqxdata.export.js, line 7: unreachable code after return statement
+1652799442380	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1652799442382	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+1652799442383	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'uninitialized'.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
