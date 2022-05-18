@@ -88,6 +88,40 @@ def search_stock(url, target):
     #print('nothing found')
     return False, False
 
+def get_price(driver):
+    driver.find_element(By.XPATH,"//span[text() = 'Historical Data']").click()
+    for i in range(0,3):
+        driver.execute_script("window.scrollBy(0,5000)")
+        time.sleep(1)
+    #table = driver.find_element(By.ID,"Col1-1-HistoricalDataTable-Proxy")
+    table = driver.find_element(By.CSS_SELECTOR,"table")
+    return table.get_attribute('outerHTML')
+
+def get_summary(driver):
+    summary = driver.find_element(By.ID,"quote-summary")
+    return summary.get_attribute('outerHTML')
+    
+def search_finance(url, target):
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+    driver.get(url)
+    agree_cookies = driver.find_elements(By.NAME, 'agree')
+    if agree_cookies:
+        agree_cookies[0].click()
+    search_bar =  WebDriverWait(driver, 100).until(EC.visibility_of_element_located((By.ID, "yfin-usr-qry")))
+    search_bar.send_keys(target)
+    button = driver.find_element(By.ID, 'header-desktop-search-button')
+    button.click()
+    summary = get_summary(driver)
+    history = get_price(driver)
+    #print(price)
+    driver.quit()
+    return  summary, history
+    
 #url = 'https://www.macrotrends.net/stocks/stock-screener'
 #search_bs()
 #print(search_stock(url,'NVIDIA'))

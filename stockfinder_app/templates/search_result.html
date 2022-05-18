@@ -2,16 +2,26 @@
 <head>
   <style>
     table {
-        table-layout:fixed;
-        width:100%;
-        overflow:auto;
+        border-collapse: collapse;
+        width: 100%;
     }
+
+    tr {
+        border-bottom: 1px solid #ccc;
+    }
+
+    th {
+        text-align: left;    
+    }
+
   </style>
+
+
 </head>
 
 <h1>Search result</h1>
 <h2>you searched for {{searched_stock}}</h2>
-{% if searched_table %}
+{% if searched_summary %}
 <div class="container">
 
   <div class="tab">
@@ -21,11 +31,11 @@
   </div>
   
 
-    <div class="tabcontent" id="price" >
-      <span>{{searched_price|safe}}</span>
+  <div class="tabcontent" id="price" >
+      {{searched_summary|safe}}
     </div>
     <div class="tabcontent" id="history" style="display:none" > 
-      <table>{{searched_table|safe}}</table>       
+      {{searched_history|safe}}      
   </div>
     <div class="tabcontent" id="other" style="display:none">...</div>
   
