@@ -1,31 +1,39 @@
 {%block body%}
-<h1>Search result</h1>
-{% if searched_table %}
-<h2>you searched for {{searched_stock}}</h2>
+<head>
+  <style>
+    table {
+        table-layout:fixed;
+        width:100%;
+        overflow:auto;
+    }
+  </style>
+</head>
 
+<h1>Search result</h1>
+<h2>you searched for {{searched_stock}}</h2>
+{% if searched_table %}
 <div class="container">
 
   <div class="tab">
-    <button class="tablinks" onclick="display(event, 'history')">History table</button>
-    <button class="tablinks" onclick="display(event, 'graphic')">Manchester</button>
+    <button class="tablinks" onclick="display(event, 'price')">Current Price</button>
+    <button class="tablinks" onclick="display(event, 'history')">Price history</button>
     <button class="tablinks" onclick="display(event, 'other')">other</button>
   </div>
   
-  
-    <div class="tabcontent" id="history" > 
-        <table>{{searched_table|safe}}</table>
+
+    <div class="tabcontent" id="price" >
+      <span>{{searched_price|safe}}</span>
     </div>
-    <div class="tabcontent" id="graphic" style="display:none">
-      <div>{{searched_graphic|safe}}</div>
+    <div class="tabcontent" id="history" style="display:none" > 
+      <table>{{searched_table|safe}}</table>       
+  </div>
     <div class="tabcontent" id="other" style="display:none">...</div>
   
   </div>
-
-
-
 {% else %}
-<h2>You searched nothing</h2>
+<h2>No results in database</h2>
 {% endif %}
+
 {%endblock%}
 
 {%block content%}

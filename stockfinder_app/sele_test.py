@@ -49,10 +49,11 @@ def get_history_table(driver):
     table = WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.CLASS_NAME, "historical_data_table.table")))
     return table.get_attribute('innerHTML')
     
-def get_graphic(driver):
-    driver.switch_to.frame(driver.find_element(By.ID, 'chart_iframe'))
-    graphic = driver.find_element(By.ID, 'chartdiv')
-    return graphic.get_attribute('innerHTML')
+
+def get_description(driver):
+    description = driver.find_element(By.XPATH, "//span[contains(text(), 'Historical daily')]")
+ 
+    return description.get_attribute('innerHTML')
 
 
 def search_stock(url, target):
@@ -74,15 +75,18 @@ def search_stock(url, target):
     if sugg_links:
         #sugg_link = driver.find_element(By.CLASS_NAME,"typeahead__list a")
         sugg_links[0].click()
+        tabs = driver.find_element(By.CLASS_NAME, 'nav.nav-tabs a')
+        #tabs = driver.find_element(By.CSS_SELECTOR, 'li a')
+        tabs.click()
         table = get_history_table(driver)
-        graphic = get_graphic(driver)
+        graphic = get_description(driver)
+        #print(table)
         #print(graphic)
         #print(table)
-        driver.switch_to.default_content()
+        #driver.switch_to.default_content()
         return table, graphic
     #print('nothing found')
-    return 
-    #print(suggestion_box)
+    return False, False
 
 #url = 'https://www.macrotrends.net/stocks/stock-screener'
 #search_bs()
