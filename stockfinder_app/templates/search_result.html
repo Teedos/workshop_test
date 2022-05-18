@@ -1,21 +1,22 @@
 {%block body%}
 <h1>Search result</h1>
-{% if searched_stock %}
+{% if searched_table %}
 <h2>you searched for {{searched_stock}}</h2>
 
 <div class="container">
 
   <div class="tab">
     <button class="tablinks" onclick="display(event, 'history')">History table</button>
-    <button class="tablinks" onclick="display(event, 'manchester')">Manchester</button>
+    <button class="tablinks" onclick="display(event, 'graphic')">Manchester</button>
     <button class="tablinks" onclick="display(event, 'other')">other</button>
   </div>
   
   
     <div class="tabcontent" id="history" > 
-        <table>{{searched_element|safe}}</table>
+        <table>{{searched_table|safe}}</table>
     </div>
-    <div class="tabcontent" id="manchester" style="display:none">The Manchester Baby, also known as the Small-Scale Experimental Machine, was the world's first electronic stored-program computer. It was built at the University of Manchester, UK, by Frederic C. Williams, Tom Kilburn, and Geoff Tootill, and ran its first program on 21 June 1948, seventy-one years ago</div>
+    <div class="tabcontent" id="graphic" style="display:none">
+      <div>{{searched_graphic|safe}}</div>
     <div class="tabcontent" id="other" style="display:none">...</div>
   
   </div>
